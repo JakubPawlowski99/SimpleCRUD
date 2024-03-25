@@ -1,0 +1,35 @@
+﻿@model List<CRUD.Models.Product>
+
+@{
+    ViewBag.Title = "Product Index";
+}
+
+<h2>Product Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <!-- Add other headers for properties as needed -->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <!-- Add other cells for properties as needed -->
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
